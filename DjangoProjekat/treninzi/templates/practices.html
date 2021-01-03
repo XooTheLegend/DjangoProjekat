@@ -1,0 +1,15 @@
+{%  extends 'master.html' %}
+
+{% block title %}
+    Django projekat
+{% endblock %}
+
+{%  block content %}
+    <div class="list-group">
+        {% for practice in practices %}
+            <a class="list-group-item list-group-item-action" href="{% url 'demo_app:practice' practice.id %}">
+                {{ practice.type }}
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

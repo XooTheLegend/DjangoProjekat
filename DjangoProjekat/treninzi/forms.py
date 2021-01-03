@@ -4,7 +4,7 @@ from .models import Practice, Comment
 class PracticeForm(ModelForm):
     class Meta:
         model = Practice
-        fields = ['content']
+        fields = ['type', 'location', 'content', 'rate', 'hours', 'minutes']
 
 
 class CommentForm(ModelForm):

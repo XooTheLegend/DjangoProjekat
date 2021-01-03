@@ -1,0 +1,50 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+    <div class="card">
+        <div class="card-header">
+            <h1>
+                {{ practice.type }}
+                {% if perms.demo_app.change_article %}
+                    <a href="{% url 'demo_app:edit' practice.id %}">
+                        <span class="badge badge-primary">Edit</span>
+                    </a>
+                {% endif %}
+            </h1>
+        </div>
+        <div class ="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>Lokacija: {{practice.location}}</p>
+            </blockquote>
+        </div>
+        <div class ="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>Ocena: {{practice.rate}}</p>
+            </blockquote>
+        </div>
+        <div class ="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>Trajanje: {{practice.hours}} hours, {{practice.minutes}} minutes</p>
+            </blockquote>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>Komentar: </p>
+                <p>{{ practice.content }}</p>
+                <footer class="blockquote-footer">
+                    Author:
+                    <cite title="Source Title">
+                        {{practice.owner}}
+                    </cite>
+                </footer>
+            </blockquote>
+        </div>
+        <div class ="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>Vreme: {{practice.created_at}}</p>
+            </blockquote>
+        </div>
+    </div>
+
+{% endblock %}
